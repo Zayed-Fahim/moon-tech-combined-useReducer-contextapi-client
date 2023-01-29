@@ -5,18 +5,15 @@ import { initialState, productReducer } from "../State/productReducer";
 const PRODUCT_CONTEXT = createContext();
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
-  console.log(state);
   useEffect(() => {
     dispatch({ type: actionTypes.FETCHING_START });
-    fetch("../products.json")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) =>
-        dispatch({ type: actionTypes.FETCHING_SUCCESS, payload: data.data })
+        dispatch({ type: actionTypes.FETCHING_SUCCESS, payload: data })
       )
-      .catch((error) =>
-        dispatch({ type: actionTypes.FETCHING_ERROR, payload: error })
-      );
-  });
+      .catch(() => dispatch({ type: actionTypes.FETCHING_ERROR }));
+  }, []);
   const value = {
     state,
     dispatch,

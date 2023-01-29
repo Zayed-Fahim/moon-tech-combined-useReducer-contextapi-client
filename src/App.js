@@ -1,6 +1,8 @@
-import './App.css';
-import ProductProvider from './Context/ProductProvider';
-import Route from './Routes/Route/Route';
+
+import "./App.css";
+import ProductProvider from "./Context/ProductProvider";
+import Route from "./Routes/Route/Route";
+
 
 function App() {
   return (
