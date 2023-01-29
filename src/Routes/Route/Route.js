@@ -4,6 +4,7 @@ import Main from "../../Layout/Main/Main";
 import Home from "../../Pages/Home/Home";
 import TopRated from "../../Pages/TopRated/TopRated";
 import Cart from "../../Pages/Cart/Cart";
+import Wishlist from "../../Pages/Wishlist/Wishlist";
 
 const Route = () => {
   const routes = createBrowserRouter([
@@ -18,6 +19,10 @@ const Route = () => {
         {
           path: "/top-rated",
           element: <TopRated />,
+        },
+        {
+          path: "/wishlist",
+          element: <Wishlist/>,
         },
         {
           path: "/cart",
